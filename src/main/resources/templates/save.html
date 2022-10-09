@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Spring Boot</title>
+
+    <!-- CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet"
+    th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a  href="/" class="navbar-brand ms-5">Administrador de Películas</a>
+        <div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/save/0" class="btn btn-primary">Agregar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <br>
+        <h2>Agregar Película</h2>
+        <form action="#" th:action="@{/save}" th:object="${movie}" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="id" th:field="*{id}" name="id">
+            <div class="form-group mt-3">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}" name="name">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="nombre">Fecha de Estreno</label>
+                <input type="text" class="form-control" id="premieredate" th:field="*{premieredate}" name="premieredate">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="nombre">Director</label>
+                <input type="text" class="form-control" id="director" th:field="*{director}" name="director">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="nombre">Sinopsis</label>
+                <textarea class="form-control" id="synopsis" th:field="*{synopsis}" name="synopsis"></textarea>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="nombre">Carga la Caratula:</label>
+                <input type="file" class="form-control" name="file">
+            </div>
+
+            <button type="submit" class="btn btn-success mt-3">Guardar</button>
+        </form>
+    </div>
+</body>
+</html>
